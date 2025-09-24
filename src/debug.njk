@@ -1,0 +1,7 @@
+{# src/debug.njk #}
+---
+permalink: "debug/index.html"
+---
+<p>page.url: {{ page.url }}</p>
+<p>url(page.url): {{ page.url | url }}</p>
+<p>abs: {{ page.url | url | absoluteUrl(site.url) }}</p>
