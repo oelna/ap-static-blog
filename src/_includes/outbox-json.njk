@@ -1,0 +1,19 @@
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "id": "https://example.com/ap/outbox",
+  "type": "OrderedCollection",
+  "totalItems": {{ collections.notes | length }},
+  "orderedItems": [
+    {%- for p in collections.notes | reverse -%}
+      {
+        "type": "Create",
+        "id": "https://example.com/ap/outbox#create-{{ p.fileSlug }}",
+        "actor": "https://example.com/ap",
+        "published": "{{ (p.data.published or p.date) | date('yyyy-LL-dd\'T\'HH:mm:ss\'Z\'') }}",
+        "to": ["https://www.w3.org/ns/activitystreams#Public"],
+        "cc": ["https://example.com/ap/followers"],
+        "object": "https://example.com{{ p.url }}index.json"
+      }{{ not loop.last ? ',' : '' }}
+    {%- endfor -%}
+  ]
+}
