@@ -7,7 +7,7 @@ permalink: "index.html"
 <ul>
 {% for p in collections.notes | reverse %}
   <li>
-    <a href="{{ p.url | url }}">{{ p.data.title or p.fileSlug }}</a>
+    <a href="{{ p.url }}">{{ p.data.title or p.fileSlug }}</a>
     <small>— {{ (p.data.published or p.date) | date }}</small>
   </li>
 {% endfor %}
