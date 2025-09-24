@@ -1,13 +1,13 @@
-{% set idUrl = "https://example.com" + page.url + "index.json" %}
+{% set idUrl = (page.url + 'index.json') | url | absoluteUrl(site.url) %}
 {
   "@context": "https://www.w3.org/ns/activitystreams",
   "id": "{{ idUrl }}",
   "type": "Note",
-  "attributedTo": "https://example.com/ap",
+  "attributedTo": "{{ '/ap' | url | absoluteUrl(site.url) }}",
   "published": "{{ published | date }}",
   "to": ["https://www.w3.org/ns/activitystreams#Public"],
-  "cc": ["https://example.com/ap/followers"],
+  "cc": ["{{ '/ap/followers' | url | absoluteUrl(site.url) }}"],
   "name": {{ title | dump }},
   "content": {{ content | dump }},
-  "url": "https://example.com{{ page.url }}"
+  "url": "{{ page.url | url | absoluteUrl(site.url) }}"
 }
