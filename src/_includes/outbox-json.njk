@@ -1,19 +1,18 @@
-{# src/_includes/outbox-json.njk #}
 {
   "@context": "https://www.w3.org/ns/activitystreams",
-  "id": "https://example.com/ap/outbox/index.json",
+  "id": "{{ '/ap/outbox/index.json' | url | absoluteUrl(site.url) }}",
   "type": "OrderedCollection",
   "totalItems": {{ collections.notes | length }},
   "orderedItems": [
     {%- for p in collections.notes | reverse -%}
       {
         "type": "Create",
-        "id": "https://example.com/ap/outbox#create-{{ p.fileSlug }}",
-        "actor": "https://example.com/ap",
+        "id": "{{ '/ap/outbox#create-' ~ p.fileSlug | url | absoluteUrl(site.url) }}",
+        "actor": "{{ '/ap' | url | absoluteUrl(site.url) }}",
         "published": "{{ (p.data.published or p.date) | date }}",
         "to": ["https://www.w3.org/ns/activitystreams#Public"],
-        "cc": ["https://example.com/ap/followers"],
-        "object": "https://example.com{{ p.url }}index.json"
+        "cc": ["{{ '/ap/followers' | url | absoluteUrl(site.url) }}"],
+        "object": "{{ (p.url + 'index.json') | url | absoluteUrl(site.url) }}"
       }{% if not loop.last %},{% endif %}
     {%- endfor -%}
   ]
