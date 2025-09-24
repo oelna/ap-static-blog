@@ -4,7 +4,7 @@
   "id": "{{ idUrl }}",
   "type": "Note",
   "attributedTo": "https://example.com/ap",
-  "published": "{{ published | date('yyyy-LL-dd\'T\'HH:mm:ss\'Z\'') }}",
+  "published": "{{ published | date }}",
   "to": ["https://www.w3.org/ns/activitystreams#Public"],
   "cc": ["https://example.com/ap/followers"],
   "name": {{ title | dump }},
