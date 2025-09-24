@@ -1,8 +1,11 @@
 // .eleventy.mjs
 import { DateTime } from "npm:luxon";
+import pluginRss from "npm:@11ty/eleventy-plugin-rss";
 
 /** @param {import('@11ty/eleventy/src/UserConfig')} eleventyConfig */
 export default function(eleventyConfig) {
+  eleventyConfig.addPlugin(pluginRss);
+  
   // Collection: all notes (src/notes/*.md), sorted by published ascending
   eleventyConfig.addCollection("notes", (collectionApi) => {
     return collectionApi
