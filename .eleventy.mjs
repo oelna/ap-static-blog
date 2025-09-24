@@ -1,5 +1,5 @@
 // .eleventy.mjs
-import { DateTime } from "luxon";
+import { DateTime } from "npm:luxon";
 
 /** @param {import('@11ty/eleventy/src/UserConfig')} eleventyConfig */
 export default function(eleventyConfig) {
