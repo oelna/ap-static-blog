@@ -43,6 +43,7 @@ export default function(eleventyConfig) {
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
     dataTemplateEngine: "njk",
-    passthroughFileCopy: true
+    passthroughFileCopy: true,
+    pathPrefix: "/ap-static-blog/"
   };
 }
