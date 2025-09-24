@@ -1,0 +1,13 @@
+{% set idUrl = "https://example.com" + page.url + "index.json" %}
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "id": "{{ idUrl }}",
+  "type": "Note",
+  "attributedTo": "https://example.com/ap",
+  "published": "{{ published | date('yyyy-LL-dd\'T\'HH:mm:ss\'Z\'') }}",
+  "to": ["https://www.w3.org/ns/activitystreams#Public"],
+  "cc": ["https://example.com/ap/followers"],
+  "name": {{ title | dump }},
+  "content": {{ content | dump }},
+  "url": "https://example.com{{ page.url }}"
+}
