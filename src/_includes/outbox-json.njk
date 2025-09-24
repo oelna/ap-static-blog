@@ -1,6 +1,7 @@
+{# src/_includes/outbox-json.njk #}
 {
   "@context": "https://www.w3.org/ns/activitystreams",
-  "id": "https://example.com/ap/outbox",
+  "id": "https://example.com/ap/outbox/index.json",
   "type": "OrderedCollection",
   "totalItems": {{ collections.notes | length }},
   "orderedItems": [
