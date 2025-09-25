@@ -11,7 +11,7 @@
         "actor": "{{ ap.serviceUrl }}",
         "published": "{{ (p.data.published or p.date) | date }}",
         "to": ["https://www.w3.org/ns/activitystreams#Public"],
-        "cc": ["{{ '/followers' | ap.serviceUrl }}"],
+        "cc": ["{{ '/followers' | absoluteUrl(ap.serviceUrl) }}"],
         "object": "{{ (p.url + 'index.json') | url | absoluteUrl(site.url) }}"
       }{% if not loop.last %},{% endif %}
     {%- endfor -%}
