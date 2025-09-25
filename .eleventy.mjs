@@ -2,8 +2,12 @@
 import { DateTime } from "npm:luxon";
 import pluginRss from "npm:@11ty/eleventy-plugin-rss";
 
-/** @param {import('@11ty/eleventy/src/UserConfig')} eleventyConfig */
 export default function(eleventyConfig) {
+  eleventyConfig.addGlobalData("ap", {
+    serviceUrl: Deno.env.get("AP_SERVICE_URL") ?? "https://ap.arnorichter.de/ap",
+    inboxUrl:   Deno.env.get("AP_INBOX_URL")   ?? "https://ap.arnorichter.de/ap/inbox"
+  });
+  
   eleventyConfig.addPlugin(pluginRss);
   
   // Collection: all notes (src/notes/*.md), sorted by published ascending
