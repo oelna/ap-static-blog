@@ -8,10 +8,10 @@
       {
         "type": "Create",
         "id": "{{ '/ap/outbox#create-' ~ p.fileSlug | url | absoluteUrl(site.url) }}",
-        "actor": "{{ '/ap' | url | absoluteUrl(site.url) }}",
+        "actor": "{{ ap.serviceUrl }}",
         "published": "{{ (p.data.published or p.date) | date }}",
         "to": ["https://www.w3.org/ns/activitystreams#Public"],
-        "cc": ["{{ '/ap/followers' | url | absoluteUrl(site.url) }}"],
+        "cc": ["{{ '/followers' | ap.serviceUrl }}"],
         "object": "{{ (p.url + 'index.json') | url | absoluteUrl(site.url) }}"
       }{% if not loop.last %},{% endif %}
     {%- endfor -%}
