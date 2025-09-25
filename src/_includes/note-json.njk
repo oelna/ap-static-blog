@@ -1,4 +1,4 @@
-{% set idUrl = (page.url + 'index.json') | url | absoluteUrl(site.url) %}
+{% set idUrl = page.url | url | absoluteUrl(site.url) %}
 {
   "@context": "https://www.w3.org/ns/activitystreams",
   "id": "{{ idUrl }}",
