@@ -14,6 +14,8 @@
     <p>xxx: {{ url }}</p>
     <p>url(page.url): {{ page.url | url }}</p>
     <p>abs: {{ page.url | url | absoluteUrl(site.url) }}</p>
+    <p>Follow endpoint: {{ ap.inboxUrl }}</p>
+    <p>Actor: {{ ap.serviceUrl }}</p>
   </article>
 </body>
 </html>
