@@ -5,7 +5,8 @@ import pluginRss from "npm:@11ty/eleventy-plugin-rss";
 export default function(eleventyConfig) {
   eleventyConfig.addGlobalData("ap", {
     serviceUrl: Deno.env.get("AP_SERVICE_URL") ?? "https://ap.arnorichter.de/ap",
-    inboxUrl:   Deno.env.get("AP_INBOX_URL")   ?? "https://ap.arnorichter.de/ap/inbox"
+    inboxUrl:   Deno.env.get("AP_INBOX_URL")   ?? "https://ap.arnorichter.de/ap/inbox",
+    followersUrl:   Deno.env.get("AP_FOLLOWERS_URL")   ?? "https://ap.arnorichter.de/ap/followers"
   });
   
   eleventyConfig.addPlugin(pluginRss);
